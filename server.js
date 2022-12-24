@@ -12,6 +12,8 @@ const cookieParser = require("cookie-parser");
 const compression = require("compression");
 
 const app = express();
+app.enable("trust proxy");
+
 app.use(cookieParser());
 require("dotenv").config({ path: "./config.env" });
 
@@ -56,7 +58,10 @@ app.use((req, res, next) => {
 app.use("/api/v1/movies", movieRouter);
 app.use("/api/v1/users", userRouter);
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://teonazav.github.io/movies-frontend/#/"
+  );
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader(
     "Access-Control-Allow-Headers",
