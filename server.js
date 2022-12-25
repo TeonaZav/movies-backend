@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5000;
 const DB = process.env.DATABASE;
 
 const corsConfig = {
-  origin: "http://localhost:3000",
+  origin: "https://lovely-dolphin-2a9fb8.netlify.app",
   credentials: true,
 };
 app.use(cors(corsConfig));
@@ -60,7 +60,7 @@ app.use("/api/v1/users", userRouter);
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://teonazav.github.io/movies-frontend/#/"
+    "https://lovely-dolphin-2a9fb8.netlify.app"
   );
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader(
